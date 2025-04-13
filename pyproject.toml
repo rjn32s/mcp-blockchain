@@ -34,7 +34,7 @@ dependencies = [
 ]
 
 [project.scripts]
-mcp-blockchain = "src.mcp_blockchain.__main__:main"
+mcp-blockchain = "mcp_blockchain.__main__:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/mcp_blockchain"]
