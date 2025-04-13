@@ -10,7 +10,7 @@ Note: This package uses public RPC endpoints which may have rate limits.
 For production use, consider using your own RPC endpoint.
 """
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 
 from .server import (
     mcp,
