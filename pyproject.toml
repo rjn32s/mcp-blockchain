@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mcp-blockchain"
-version = "0.1.1"
+version = "0.1.2"
 description = "A production-grade blockchain server built using MCP (Model Context Protocol)"
 readme = "README.md"
 requires-python = ">=3.11"
