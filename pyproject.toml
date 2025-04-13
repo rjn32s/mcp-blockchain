@@ -38,6 +38,3 @@ mcp-blockchain = "mcp_blockchain.__main__:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/mcp_blockchain"]
-
-[tool.hatch.build.targets.wheel.hooks.vcs]
-version-file = "src/mcp_blockchain/__init__.py"
