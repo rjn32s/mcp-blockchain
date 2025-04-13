@@ -8,17 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [0.1.0] - 2025-04-13
 
 ### Added
-- Initial release
-- Ethereum address validation tool
-- Gas fee estimation with multiple RPC fallbacks
-- Wallet balance checker
-- Smart contract ownership checker with proxy support
-- Transaction cost calculator for different operation types
-- Comprehensive test suite with async support
-- GitHub Actions CI/CD pipeline
-- Multiple public RPC endpoint support with fallback mechanism
-- EIP-1967 proxy contract detection and handling
-- Retry mechanism with exponential backoff for RPC calls
+- Initial release of MCP Blockchain server
+- Ethereum Address Validator with checksum verification
+- Gas Fee Estimator using public RPC endpoints
+- Wallet Balance Checker with fallback RPCs
+- Smart Contract Ownership Checker with proxy contract support
+- Transaction Cost Calculator for various transaction types
 
 ### Features
 - Support for basic ETH transfers
