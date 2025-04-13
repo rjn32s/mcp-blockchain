@@ -240,6 +240,48 @@ async def check_contract_owner(address: str) -> str:
     except Exception as e:
         return f"Error checking contract owner: {str(e)}"
 
+@mcp.tool()
+async def calculate_transaction_cost(transaction_type: str) -> str:
+    """Calculate the estimated cost for different types of transactions.
+    
+    Args:
+        transaction_type: Type of transaction (basic_transfer, erc20_transfer, nft_transfer, uniswap_swap, contract_deploy)
+    """
+    try:
+        web3 = get_web3()
+        if not web3.is_connected():
+            return "Error: Unable to connect to Ethereum network. Please try again later."
+            
+        # Get current gas price
+        gas_price = web3.eth.gas_price
+        gas_price_gwei = web3.from_wei(gas_price, 'gwei')
+        
+        # Define gas limits for different transaction types
+        gas_limits = {
+            "basic_transfer": 21000,  # Basic ETH transfer
+            "erc20_transfer": 65000,  # ERC20 token transfer
+            "nft_transfer": 100000,   # NFT transfer
+            "uniswap_swap": 180000,   # Uniswap swap
+            "contract_deploy": 2000000 # Contract deployment
+        }
+        
+        if transaction_type not in gas_limits:
+            raise ValueError(f"Invalid transaction type. Must be one of: {', '.join(gas_limits.keys())}")
+            
+        gas_limit = gas_limits[transaction_type]
+        cost_gwei = gas_price_gwei * gas_limit
+        cost_eth = web3.from_wei(cost_gwei * 10**9, 'ether')
+        
+        return f"""
+Transaction Type: {transaction_type}
+Gas Limit: {gas_limit:,} units
+Gas Price: {gas_price_gwei:.2f} Gwei
+Estimated Cost: {cost_gwei:.0f} Gwei ({cost_eth:.8f} ETH)
+Note: These are estimates and may vary based on network conditions
+"""
+    except Exception as e:
+        return f"Error calculating transaction cost: {str(e)}"
+
 if __name__ == "__main__":
     # Initialize and run the server
     mcp.run(transport='stdio')

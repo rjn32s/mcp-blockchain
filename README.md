@@ -53,7 +53,7 @@ Add the following to your Claude Desktop configuration (`~/Library/Application S
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/mcp-blockchain.git
+git clone https://github.com/rjn32s/mcp-blockchain.git
 cd mcp-blockchain
 
 # Create virtual environment
